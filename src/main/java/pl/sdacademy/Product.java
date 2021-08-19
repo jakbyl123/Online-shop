@@ -16,5 +16,16 @@ public class Product {
     private String category;
     private double price;
     private String ProductType;
-    private String author;
+
+    public Product() {
+    }
+
+    public Product(String title, String description, String url, String category, double price, String productType) {
+        this.title = title;
+        this.description = description;
+        this.url = url;
+        this.category = category;
+        this.price = price;
+        ProductType = productType;
+    }
 }
