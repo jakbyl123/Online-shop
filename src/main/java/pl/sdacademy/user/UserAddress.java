@@ -1,15 +1,9 @@
 package pl.sdacademy.user;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Embeddable
 public class UserAddress {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private String country;
     private String city;
     private String street;
@@ -25,9 +19,6 @@ public class UserAddress {
     public UserAddress() {
     }
 
-    public Integer getId() {
-        return id;
-    }
 
     public String getCountry() {
         return country;
@@ -43,5 +34,21 @@ public class UserAddress {
 
     public int getPostalCode() {
         return postalCode;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
     }
 }

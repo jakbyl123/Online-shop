@@ -10,6 +10,8 @@ public class User {
     private String login;
     private String password;
     private String role;
-//    private UserAddress userAddress;
+
+    @Embedded
+    private UserAddress userAddress;
 
 }
