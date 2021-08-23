@@ -7,7 +7,7 @@ public class UserAddress {
     private String country;
     private String city;
     private String street;
-    private int postalCode;
+    private Integer postalCode;
 
     public UserAddress(String country, String city, String street, int postalCode) {
         this.country = country;

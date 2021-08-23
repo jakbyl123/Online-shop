@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.product;
 
 
 import javax.persistence.Entity;

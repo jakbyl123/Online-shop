@@ -22,7 +22,7 @@ public class CategoryController {
     public String categories(ModelMap modelMap){
         List<Category> categories = categoryRepository.findAll();
         modelMap.addAttribute("categories", categories);
-        return "categories";
+        return "category/categories";
     }
 
     @GetMapping("/add")
