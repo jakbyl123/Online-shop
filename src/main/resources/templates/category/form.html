@@ -5,7 +5,7 @@
     <title>Add</title>
 </head>
 <body>
-<form method="post" th:object="${category}">
+<form method="post" th:object="${category}" th:action="@{/category/add}">
   <div>
     <label>Nazwa: <input th:type="text" th:field="*{name}"></label>
   </div>
