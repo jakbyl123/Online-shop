@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zaloguj sie</title>
+</head>
+<body>
+<form method="post" th:action="@{/login}" autocomplete="off">
+    <div>
+        <label>Login: <input type="text" name="username"></label>
+    </div>
+    <div>
+        <label>Haslo: <input type="password" name="password"></label>
+    </div>
+    <input type="submit">
+</form>
+</body>
+</html>

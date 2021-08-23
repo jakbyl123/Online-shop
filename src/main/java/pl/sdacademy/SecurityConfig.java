@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import pl.sdacademy.controllers.LoggedInController;
 import pl.sdacademy.user.UserService;
 
 @EnableWebSecurity
@@ -24,9 +25,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl(LoggedInController.PATH)
                 .and()
                 .authorizeRequests()
                 .antMatchers("/register")
+                .permitAll()
+                .and()
+                .authorizeRequests()
+                .antMatchers(LoggedInController.PATH)
+                .authenticated()
+                .antMatchers("/**")
                 .permitAll();
     }
+
+
 }
