@@ -9,7 +9,7 @@ public class UserAddress {
     private String street;
     private Integer postalCode;
 
-    public UserAddress(String country, String city, String street, int postalCode) {
+    public UserAddress(String country, String city, String street, Integer postalCode) {
         this.country = country;
         this.city = city;
         this.street = street;
@@ -32,7 +32,7 @@ public class UserAddress {
         return street;
     }
 
-    public int getPostalCode() {
+    public Integer getPostalCode() {
         return postalCode;
     }
 
@@ -48,7 +48,7 @@ public class UserAddress {
         this.street = street;
     }
 
-    public void setPostalCode(int postalCode) {
+    public void setPostalCode(Integer postalCode) {
         this.postalCode = postalCode;
     }
 }

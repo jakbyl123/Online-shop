@@ -15,7 +15,11 @@ public class User implements UserDetails {
     private Integer id;
     private String username;
     private String password;
+    private String email;
     private String role = "USER";
+
+    @Embedded
+    private UserNames userNames;
 
     @Embedded
     private UserAddress userAddress;
@@ -61,5 +65,45 @@ public class User implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserNames getUserNames() {
+        return userNames;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public UserAddress getUserAddress() {
+        return userAddress;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setUserNames(UserNames userNames) {
+        this.userNames = userNames;
+    }
+
+    public void setUserAddress(UserAddress userAddress) {
+        this.userAddress = userAddress;
     }
 }
