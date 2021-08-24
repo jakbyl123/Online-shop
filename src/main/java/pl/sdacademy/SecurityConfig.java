@@ -2,6 +2,8 @@ package pl.sdacademy;
 
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -11,6 +13,7 @@ import pl.sdacademy.controllers.LoggedInController;
 import pl.sdacademy.user.UserService;
 
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
@@ -29,15 +32,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl(LoggedInController.PATH)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/register")
-                .permitAll()
-                .and()
-                .authorizeRequests()
-                .antMatchers(LoggedInController.PATH)
-                .authenticated()
-                .antMatchers("/**")
-                .permitAll();
+                .antMatchers(LoggedInController.PATH).authenticated()
+                .antMatchers("/**") .permitAll();
     }
 
-
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService);
+    }
 }
