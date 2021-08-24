@@ -2,38 +2,51 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
     <title>Rejestracja</title>
 </head>
 <body>
+<div class="container">
 <h1>Zarejestruj sie</h1>
 <form method="post" th:action="@{/register}" autocomplete="off" th:object="${user}">
-    <div>
-        <label>Nazwa użytkownika: <input type="text" th:field="*{username}"></label>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Nazwa użytkownika: <input type="text" th:field="*{username}"></label>
         <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
     </div>
-    <div>
-        <label>Hasło: <input type="password" th:field="*{password}"></label>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Hasło: <input type="password" th:field="*{password}" class="form-control" id="exampleInputPassword1"></label>
         <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
     </div>
-    <div>
+
+    <div class="mb-3">
         <label>Imie: <input type="text" th:field="*{userNames.firstName}"></label>
     </div>
-    <div>
+    <div class="mb-3">
         <label>Nazwisko: <input type="text" th:field="*{userNames.lastName}"></label>
     </div>
-    <div>
+    <div class="mb-3">
         <label>Panstwo: <input type="text" th:field="*{userAddress.country}" name="country"></label>
     </div>
-    <div>
+    <div class="mb-3">
         <label>Miasto: <input type="text" th:field="*{userAddress.city}" name="city"></label>
     </div>
-    <div>
+    <div class="mb-3">
         <label>Ulica: <input type="text" th:field="*{userAddress.street}" name="street"></label>
     </div>
-    <div>
+    <div class="mb-3">
         <label>Kod pocztowy: <input type="text" th:field="*{userAddress.postalCode}" name="postalCode"></label>
     </div>
-    <input type="submit">
+    <input type="submit" class="btn btn-primary">
 </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
 </body>
 </html>
