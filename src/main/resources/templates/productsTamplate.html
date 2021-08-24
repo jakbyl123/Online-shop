@@ -5,12 +5,18 @@
     <title>Produkty</title>
 </head>
 <body>
+<form th:action="@{/product}">
+    Szukaj: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+    &nbsp;
+    <input type="submit" value="Search" />
+    &nbsp;
+</form>
 <table>
     <thead>
     <tr>
         <td>Id</td>
-        <td>Kategoria</td>
         <td>Nazwa</td>
+        <td>Kategoria</td>
         <td>Cena</td>
         <td>Opis</td>
         <td>Link</td>
