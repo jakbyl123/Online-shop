@@ -17,11 +17,11 @@
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
     </div>
     <div class="mb-3">
-        <label class="form-label">Nazwa użytkownika: <input type="text" th:field="*{username}"></label>
+        <label class="form-label">Nazwa użytkownika*: <input type="text" th:field="*{username}"></label>
         <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Hasło: <input type="password" th:field="*{password}" class="form-control" id="exampleInputPassword1"></label>
+        <label for="exampleInputPassword1" class="form-label">Hasło*: <input type="password" th:field="*{password}" class="form-control" id="exampleInputPassword1"></label>
         <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
     </div>
 

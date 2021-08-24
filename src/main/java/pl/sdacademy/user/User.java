@@ -5,6 +5,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -13,7 +14,10 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(unique = true)
+    @Size(min = 5, message = "Nazwa użytkownika powinna mieć co najmniej {min} znaków.")
     private String username;
+    @Size(min = 8, message = "Hasło użytkownika powinna mieć co najmniej {min} znaków.")
     private String password;
     private String email;
     private String role = "USER";
