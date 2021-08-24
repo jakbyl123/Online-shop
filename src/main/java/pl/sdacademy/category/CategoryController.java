@@ -1,5 +1,6 @@
 package pl.sdacademy.category;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,12 +25,13 @@ public class CategoryController {
         modelMap.addAttribute("categories", categories);
         return "category/categories";
     }
-
+    @Secured("ROLE_ADMIN")
     @GetMapping("/add")
     public String addForm(@ModelAttribute ("category") Category category){
         return "category/form";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/add")
     public String addCategory(Category category){
         categoryRepository.save(category);
