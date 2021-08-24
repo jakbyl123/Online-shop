@@ -25,6 +25,6 @@ public class ProductController {
         model.addAttribute("products", products);
         model.addAttribute("keyword", keyword);
 
-        return "productsTemplate";
+        return "productsTamplate";
     }
 }
