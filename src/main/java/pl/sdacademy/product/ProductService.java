@@ -18,6 +18,4 @@ public class ProductService {
         }
         return productRepositoryJPA.findAll();
     }
-
-
 }

@@ -10,5 +10,4 @@ import java.util.List;
 public interface ProductRepositoryJPA extends JpaRepository<Product, Integer> {
     @Query("SELECT p FROM Product p WHERE CONCAT(COALESCE(p.name, ''), COALESCE(p.category, ''), COALESCE(p.description, ''), COALESCE(p.price, 0)) LIKE %:param%")
     List<Product> search(@Param("param") String keyword);
-
 }
