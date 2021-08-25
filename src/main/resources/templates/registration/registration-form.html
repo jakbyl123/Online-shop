@@ -22,7 +22,7 @@
             <label class="form-label" for="usernameInput">Nazwa użytkownika:</label>
             <input type="text" id="usernameInput" class="form-control" th:field="*{username}"
                    aria-describedby="usernameDescribe">
-            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+            <span th:if="${#fields.hasErrors('username')}" th:class="text-danger" th:errors="*{username}"></span>
             <div id="usernameDescribe" class="form-text">To będzie twój login. <br> Nazwa użytkownika musi składać się z
                 co najmniej 5 znaków.
             </div>
@@ -31,7 +31,7 @@
             <label for="exampleInputPassword1" class="form-label">Hasło:</label>
             <input type="password" th:field="*{password}" class="form-control"
                    id="exampleInputPassword1" aria-describedby="passwordQuote">
-            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            <span th:if="${#fields.hasErrors('password')}" th:class="text-danger" th:errors="*{password}"></span>
             <div id="passwordQuote" class="form-text">Hasło musi składać się z: <br> - co najmniej 8 znaków.</div>
         </div>
         <div class="mb-3 col-6 col-md-5 col-lg-4">
