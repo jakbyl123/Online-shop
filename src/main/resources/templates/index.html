@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Witaj</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
-<body class="align-content-center">
+<body class="text-center">
 <h1 class="text-muted">Witaj!</h1>
-<div><a th:href="@{/login}" class="link-primary">Zaloguj sie</a></div>
-<div><a th:href="@{/register}" class="link-primary">Zarejestruj sie</a></div>
-<div><a th:href="@{/category}" class="link-primary">Kategorie</a></div>
-<div><a th:href="@{/product}" class="link-primary">Produkty</a></div>
+<div class="row justify-content-center">
+    <div class="mb-3 form-control">
+        <a th:href="@{/login}" class="text-decoration-none form-control text-primary">Zaloguj sie</a>
+    </div>
+    <div class="mb-3 form-control">
+        <a th:href="@{/register}" class="text-decoration-none form-control text-primary">Zarejestruj sie</a>
+    </div>
+    <div class="mb-3 form-control">
+        <a th:href="@{/category}" class="text-decoration-none form-control text-primary">Kategorie</a>
+    </div>
+    <div class="mb-3 form-control">
+        <a th:href="@{/product}" class="text-decoration-none form-control text-primary">Produkty</a>
+    </div>
+</div>
 </body>
 </html>
