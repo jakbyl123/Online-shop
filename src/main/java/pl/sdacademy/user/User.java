@@ -3,11 +3,14 @@ package pl.sdacademy.user;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pl.sdacademy.shoppingcart.CartItem;
+import pl.sdacademy.shoppingcart.ShoppingCart;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Entity
 public class User implements UserDetails {
@@ -21,6 +24,9 @@ public class User implements UserDetails {
     private String password;
     private String email;
     private String role = "USER";
+
+    @Embedded
+    private ShoppingCart shoppingCart;
 
     @Embedded
     private UserNames userNames;

@@ -1,39 +1,23 @@
 package pl.sdacademy.shoppingcart;
 
 import pl.sdacademy.product.Product;
-import pl.sdacademy.user.User;
 
-import javax.persistence.*;
+import javax.persistence.Embeddable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-@Entity
+@Embeddable
 public class CartItem {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @ManyToOne
-    private User user;
-
     @ManyToOne
     private Product product;
-
     private Integer quantity;
 
-    public CartItem(User user, Product product, Integer quantity) {
-        this.user = user;
+    public CartItem(Product product, Integer quantity) {
         this.product = product;
         this.quantity = quantity;
     }
 
     public CartItem() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public User getUser() {
-        return user;
     }
 
     public Product getProduct() {
@@ -42,11 +26,6 @@ public class CartItem {
 
     public Integer getQuantity() {
         return quantity;
-    }
-
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public void setProduct(Product product) {
