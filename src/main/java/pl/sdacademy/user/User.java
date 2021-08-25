@@ -116,4 +116,12 @@ public class User implements UserDetails {
     public void setUserAddress(UserAddress userAddress) {
         this.userAddress = userAddress;
     }
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
 }
