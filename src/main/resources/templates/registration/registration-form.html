@@ -3,57 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>Rejestracja</title>
 </head>
 <body>
 <div class="container">
-<h1 class="text-muted">Zarejestruj sie</h1>
-<form method="post" th:action="@{/register}" autocomplete="off" th:object="${user}">
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" style="width: 35%;" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">Nigdy nigdzie nie udostępnimy twojego adresu email.</div>
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="usernameInput">Nazwa użytkownika:</label>
-        <input type="text" id="usernameInput" style="width: 25%;" class="form-control" th:field="*{username}" aria-describedby="usernameDescribe">
-        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
-        <div id="usernameDescribe" class="form-text">To będzie twój login. <br> Nazwa użytkownika musi składać się z co najmniej 5 znaków.</div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Hasło:</label>
-        <input type="password" th:field="*{password}" style="width: 30%;" class="form-control" id="exampleInputPassword1" aria-describedby="passwordQuote">
-        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
-        <div id="passwordQuote" class="form-text">Hasło musi składać się z: <br> - co najmniej 8 znaków.</div>
-    </div>
-    <div class="mb-3">
-        <label for="nameInput" class="form-label">Imię:</label>
-        <input type="text" id="nameInput" style="width: 15%;" class="form-control" th:field="*{userNames.firstName}">
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="lastNameInput">Nazwisko:</label>
-        <input type="text" id="lastNameInput" style="width: 15%;"  class="form-control" th:field="*{userNames.lastName}">
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="countryInput">Państwo:</label>
-        <input type="text" class="form-control" style="width: 15%;"  id="countryInput" th:field="*{userAddress.country}" name="country">
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="cityInput">Miasto:</label>
-        <input type="text" class="form-control" style="width: 15%;"  id="cityInput" th:field="*{userAddress.city}" name="city">
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="streetInput">Ulica:</label>
-        <input type="text" class="form-control" style="width: 15%;"  id="streetInput" th:field="*{userAddress.street}" name="street">
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="zipCodeInput">Kod pocztowy:</label>
-        <input type="text" class="form-control" style="width: 10%;"  id="zipCodeInput" th:field="*{userAddress.postalCode}" name="postalCode">
-    </div>
-    <input type="submit" class="btn btn-primary">
-</form>
+    <h1 class="text-muted">Zarejestruj sie</h1>
+    <form method="post" th:action="@{/register}" autocomplete="off" th:object="${user}"
+          class="row justify-content-center">
+        <div class="mb-3 col-6 col-md-5 col-lg-4">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Nigdy nigdzie nie udostępnimy twojego adresu email.</div>
+        </div>
+        <div class="mb-3 col-6 col-md-5 col-lg-4">
+            <label class="form-label" for="usernameInput">Nazwa użytkownika:</label>
+            <input type="text" id="usernameInput" class="form-control" th:field="*{username}"
+                   aria-describedby="usernameDescribe">
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+            <div id="usernameDescribe" class="form-text">To będzie twój login. <br> Nazwa użytkownika musi składać się z
+                co najmniej 5 znaków.
+            </div>
+        </div>
+        <div class="mb-3 col-6 col-md-5 col-lg-4">
+            <label for="exampleInputPassword1" class="form-label">Hasło:</label>
+            <input type="password" th:field="*{password}" class="form-control"
+                   id="exampleInputPassword1" aria-describedby="passwordQuote">
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            <div id="passwordQuote" class="form-text">Hasło musi składać się z: <br> - co najmniej 8 znaków.</div>
+        </div>
+        <div class="mb-3 col-6 col-md-5 col-lg-4">
+            <label for="nameInput" class="form-label">Imię:</label>
+            <input type="text" id="nameInput" class="form-control"
+                   th:field="*{userNames.firstName}">
+        </div>
+        <div class="mb-3 col-6 col-md-5 col-lg-4">
+            <label class="form-label" for="lastNameInput">Nazwisko:</label>
+            <input type="text" id="lastNameInput" class="form-control"
+                   th:field="*{userNames.lastName}">
+        </div>
+        <div class="mb-3 col-6 col-md-5 col-lg-4">
+            <label class="form-label" for="countryInput">Państwo:</label>
+            <input type="text" class="form-control" id="countryInput"
+                   th:field="*{userAddress.country}" name="country">
+        </div>
+        <div class="mb-3 col-6 col-md-5 col-lg-4">
+            <label class="form-label" for="cityInput">Miasto:</label>
+            <input type="text" class="form-control" id="cityInput" th:field="*{userAddress.city}"
+                   name="city">
+        </div>
+        <div class="mb-3 col-6 col-md-5 col-lg-4">
+            <label class="form-label" for="streetInput">Ulica:</label>
+            <input type="text" class="form-control" id="streetInput"
+                   th:field="*{userAddress.street}" name="street">
+        </div>
+        <div class="mb-3 col-6 col-md-5 col-lg-4">
+            <label class="form-label" for="zipCodeInput">Kod pocztowy:</label>
+            <input type="text" class="form-control" id="zipCodeInput"
+                   th:field="*{userAddress.postalCode}" name="postalCode">
+        </div>
+        <input type="submit" class="btn btn-primary">
+    </form>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
 </body>
 </html>
