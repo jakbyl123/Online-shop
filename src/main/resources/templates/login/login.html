@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Zaloguj sie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
 <form method="post" th:action="@{/login}" autocomplete="off">
     <div>
-        <label>Login: <input type="text" name="username"></label>
+        <label>Login: <input type="text" name="username" class="mb-3 form-control"></label>
     </div>
     <div>
-        <label>Haslo: <input type="password" name="password"></label>
+        <label>Haslo: <input type="password" name="password" class="mb-3 form-control"></label>
     </div>
-    <input type="submit">
+    <input type="submit" class="btn btn-outline-success">
 </form>
 </body>
 </html>
