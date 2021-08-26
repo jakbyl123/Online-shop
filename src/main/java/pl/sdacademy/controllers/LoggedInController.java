@@ -17,5 +17,4 @@ public class LoggedInController {
 
         return "login/logged-in";
     }
-
 }
