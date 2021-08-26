@@ -5,7 +5,7 @@
     <title>Produkty</title>
 </head>
 <body>
-<form th:action="@{/templates/product}">
+<form th:action="@{/product}">
     Szukaj: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
     &nbsp;
     <input type="submit" value="Search"/>
@@ -32,6 +32,7 @@
             <td th:text="${product.url}"></td>
             <td><form method="post" th:action="@{/shopping-cart/add}">
                 <input type="hidden" th:value="*{product.id}" name="productId">
+                <input type="number">
                 <input type="submit" value="Dodaj do koszyka">
             </form> </td>
         </tr>
