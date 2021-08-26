@@ -1,10 +1,9 @@
 package pl.sdacademy.product;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import pl.sdacademy.category.Category;
+
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -14,13 +13,14 @@ public class Product {
     private String name;
     private String description;
     private String url;
-    private String category;
+    @ManyToOne
+    private Category category;
     private double price;
 
     public Product() {
     }
 
-    public Product(String title, String description, String url, String category, double price) {
+    public Product(String title, String description, String url, Category category, double price) {
         this.name = title;
         this.description = description;
         this.url = url;
@@ -44,7 +44,7 @@ public class Product {
         return url;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 

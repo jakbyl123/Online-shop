@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Zarejestrowano użytkownika</title>
+    <meta charset="UTF-8">
+    <title>Zarejestrowano użytkownika</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
-Zarejestrowałeś użytkownika o nazwie <strong th:text="${user.username}"></strong>
+<div class="text-center text-muted">
+    <p>Zarejestrowałeś użytkownika o nazwie <strong th:text="${user.username}"></strong>!</p>
+</div>
 </body>
 </html>
