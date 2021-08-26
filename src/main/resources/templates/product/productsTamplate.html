@@ -30,6 +30,10 @@
             <td th:text="${product.price}"></td>
             <td th:text="${product.description}"></td>
             <td th:text="${product.url}"></td>
+            <td><form method="post" th:action="@{/shopping-cart/add}">
+                <input type="hidden" th:value="*{product.id}" name="productId">
+                <input type="submit" value="Dodaj do koszyka">
+            </form> </td>
         </tr>
     </tbody>
 </table>
