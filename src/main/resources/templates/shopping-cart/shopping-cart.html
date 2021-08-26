@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Koszyk</title>
 </head>
 <body>
-Moj Koszyk
+<h1>List zakupow</h1>
+<table>
+    <thead>
+    <tr>
+        <td>Nazwa</td>
+        <td>Kategoria</td>
+        <td>Cena</td>
+        <td>Opis</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cartItem : ${cartItems}">
+        <td th:text="${cartItem.product.name}"></td>
+        <td th:text="${cartItem.product.category}"></td>
+        <td th:text="${cartItem.product.price}"></td>
+        <td th:text="${cartItem.product.description}"></td>
+
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
