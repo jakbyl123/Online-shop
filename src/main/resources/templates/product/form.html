@@ -25,7 +25,9 @@
             </label>
             <label class="form-label">
                 Kategoria produktu:
-                <input th:type="text" autocomplete="off" th:field="*{category}" class="form-control">
+                <select class="form-select" th:field="*{category}">
+                    <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}"></option>
+                </select>
             </label>
             <label class="form-label">
                 Cena produktu:
