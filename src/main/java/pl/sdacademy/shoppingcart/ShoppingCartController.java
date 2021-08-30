@@ -9,10 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.sdacademy.product.Product;
 import pl.sdacademy.product.ProductRepositoryJPA;
 import pl.sdacademy.user.User;
@@ -21,6 +18,7 @@ import pl.sdacademy.user.UserRepository;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/shopping-cart")
@@ -48,13 +46,21 @@ public class ShoppingCartController {
 
 
     @PostMapping("/add")
-    public String addItem(@ModelAttribute("productId") Product product) {
+    public String addItem(@ModelAttribute("productId") Product product, @RequestParam Integer quantity) {
         productRepositoryJPA.findById(product.getId());
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
         User user = (User) authentication.getPrincipal();
         user = userRepository.getById(user.getId());
-        user.getShoppingCart().getCartItems().add(new CartItem(product, 1));
+        List<CartItem> items = user.getShoppingCart().getCartItems();
+        Optional<CartItem> optionalCartItem = items.stream()
+                .filter(ci -> ci.getProduct().equals(product))
+                .findFirst();
+        if (optionalCartItem.isPresent()) {
+            optionalCartItem.get().setQuantity(optionalCartItem.get().getQuantity() + quantity);
+        } else {
+            user.getShoppingCart().getCartItems().add(new CartItem(product, quantity));
+        }
         userRepository.save(user);
 
 
