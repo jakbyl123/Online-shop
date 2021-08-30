@@ -38,5 +38,8 @@
         </tr>
     </tbody>
 </table>
+<div th:if="!${#request.userPrincipal}">
+    <a th:href="@{/login}">Zaloguj sie, aby dodac produkt do koszyka</a>
+</div>
 </body>
 </html>
